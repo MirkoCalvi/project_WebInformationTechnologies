@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+
+*{
+    margin: 10px;
+    padding: 5px;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.center-div {
+  /*display: flex;*/
+  justify-content: center;
+  align-items: center;
+ /* height: 100vh; /* Adjust the height as needed */
+}
+
+.error{
+    text-align: center;
+    color: red;
+}
+
+.message{
+    text-align: center;
+    color: green;
+}
+
+
+
+.imgStyle{
+    height: 200px;
+    width: 200px;
+}
+
+
+.alignCenter{
+	align-items: center;
+}
+
+.song-box{
+	display: flex;
+    flex-direction: row wrap;
+	align-items: flex-start;
+	justify-content: center;
+}
+
+.song-info {
+	display: flex;
+    flex-direction: row wrap;
+    justify-content: center;
+    align-items: strech;
+}
+
+.navigation-button{
+	display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 20px;
+}
+
+.log-button{
+	display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 5px;
+}
+
+.left-button {
+	order: 1; /* Position as the first item */
+}
+
+.right-button {
+  	order: 2; /* Position as the second item */
+}
+
+
+
+.title, .subTitle{
+    text-align: center;
+}
+
+.tableStyle  {
+  border-collapse: collapse;
+  width: 100%;
+  font-family: Arial, sans-serif;
+}
+
+.tableStyle th,
+.tableStyle  td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.tableStyle  th {
+  background-color: #f5f5f5;
+  font-weight: bold;
+}
+
+.tableStyle  tr:hover {
+  background-color: #f9f9f9;
+}
+
+.tableStyle  tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+

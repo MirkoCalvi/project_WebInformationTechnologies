@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" media="all" href="../CSS/mystyle.css" th:href="@{/CSS/mystyle.css}" />	<title>HomePage</title>
+	
+	<title>Insert title here</title>
+	
+</head>
+<body>
+
+<div class="navigation-button">
+			
+	
+	<form action="Logout" method="GET">
+        <div class="right-button">
+            <input type="submit" value="Logout">
+        </div>
+    </form>
+		
+	<div class="right-button">
+		<form action="GoToPlaylistPage" method="POST">
+				<input type="hidden" th:name="numbPage" th:value="0">
+           		<input type="hidden" th:name="title" th:value="${currentPlaylist}">
+           		<button type="submit" th:text="'go to '+${currentPlaylist}"> playlistName</button>          
+	    </form>
+	    <form action="GoToHomePage" method="GET">        
+	            <input type="submit" value="GoToHomePage">
+	    </form>
+ 	</div>
+		   		
+</div>
+
+<table >
+	<tr width="60%" class="tableStyle alignCenter">
+		
+		<td>
+			<img th:src="'data:image/jpeg;base64,' + ${imgFile}" alt="albumcover" width="300" height="300"/>
+		</td>
+		
+		<td>
+			  <p th:text="'TITLE: '+${song.getTitle()}">  song title</p>
+			  <p th:text="'GENRE: '+${song.getGenre()}">  genre</p>
+			  <p th:text="'ALBUM: '+${song.getAlbum().getTitle()}">  album</p>
+			  <p th:text="'ARTIST:'+${song.getAlbum().getArtist()}">  artist</p>
+		      <p th:text="'YEAR: '+${song.getAlbum().getPublicationYear()}">  artist</p>
+			  <audio controls>
+		          <source th:src="'data:audio/mp3;base64,' + ${audioFile}" type="audio/mp3">
+		      </audio>
+		</td>
+	
+	</tr>
+
+</table>
+
+
+</body>
+</html>

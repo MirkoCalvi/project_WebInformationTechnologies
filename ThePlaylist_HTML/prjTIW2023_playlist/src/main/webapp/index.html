@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" href="CSS/mystyle.css">
+<meta charset="ISO-8859-1">
+<title>Login page</title>
+</head>
+<body>
+
+	<div class="center-div" >
+	
+		<h1>Welcome to PlaylistYou</h1>
+		
+		<img src="img/israel-palacio-Y20JJ_ddy9M-unsplash.jpg" alt="img" width="300" height="300" >
+		
+		<p th:text=" ${errorMsg}" class="error"></p>
+	
+		<form action="CheckLogin" method="POST">
+			Username: <input type="text" name="username" required> <br>
+			Password: <input type="password" name="pwd" required><br>
+			<input type="submit" value="login">
+			
+		</form>
+	
+	</div>
+
+</body>
+</html>

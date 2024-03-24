@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" media="all" href="../CSS/mystyle.css" th:href="@{/CSS/mystyle.css}" />	<title>HomePage</title>
+	<title>HomePage</title>
+</head>
+<body>
+
+<div class="navigation-button">
+			
+	<form action="Logout" method="get">
+        <div class="right-button">
+            <input type="submit" value="Logout">
+        </div>
+    </form>
+	
+	<form action="GoToHomePage" method="get">
+        <div class="right-button">
+            <input type="submit" value="GoToHomePage">
+        </div>
+    </form>
+ 		   		
+</div>
+
+
+	<table class="tableStyle alignCenter"  >
+	
+		<tr >             
+            <td  th:each="s : ${songs}">
+            	<div>
+            		<!-- <p th:text="${s.getAlbum.getImgFileName()}"> </p>  -->
+            		<img th:src="'data:image/jpeg;base64,' + ${s.getAlbum().getImgFileName()}" alt="albumcover" class="imgStyle"> 
+            		<a th:href="@{/GoToPlayerPage(songID=${s.getID()}, currentPlaylist=${PlTitle})}" th:text="'titolo '+${s.getTitle()} " >link canzone</a>
+            		
+            	</div>
+            </td>
+        </tr>
+	
+	</table>
+	
+	
+<div>
+	
+	<table >
+		<tr> 
+			<td align="left" width="50%">
+				<form action="#" th:action="@{/GoToPlaylistPage}" method="POST">
+			  		<input type="hidden" th:name="numbPage" th:value="${nubOfQuintuple - 1}">
+			  		<input type="hidden" th:name="title" th:value="${PlTitle}">
+			  		<button type="submit" th:if="${leftButton}">previous page</button>
+			  	</form>
+			</td>
+			<td align="right" width="50%">
+	   			<form action="#" th:action="@{/GoToPlaylistPage}" method="POST">
+			   		<input type="hidden" th:name="numbPage" th:value="${nubOfQuintuple + 1}">
+			   		<input type="hidden" th:name="title" th:value="${PlTitle}">
+			   		<button type="submit" th:if="${rightButton}">next page</button>
+			   	</form>
+	   		</td>
+	   	</tr>
+	</table>
+	<!-- 
+		<table style="position: fixed; bottom: 0; width: 100%;" >
+		
+		    <tr>
+		      <td style="text-align: left;">
+		      	<form action="#" th:action="@{/GoToPlaylistPage}" method="POST">
+               		<input type="hidden" th:name="numbPage" th:value="${nubOfQuintuple - 1}">
+               		<input type="hidden" th:name="title" th:value="${PlTitle}">
+               		<button type="submit" th:if="${leftButton}">previous page</button>
+               	</form>
+		      </td>
+		      <td style="text-align: right;">
+		      	<form action="#" th:action="@{/GoToPlaylistPage}" method="POST">
+               		<input type="hidden" th:name="numbPage" th:value="${nubOfQuintuple + 1}">
+               		<input type="hidden" th:name="title" th:value="${PlTitle}">
+               		<button type="submit" th:if="${rightButton}">next page</button>
+               	</form>
+		      </td>
+		    </tr>
+		    
+		  </table>  -->
+</div>
+	
+<div style="align-items: center ">
+	
+	<fieldset>
+	<p th:text="${insertError}" ><font style="color:red"> error </font></p>
+	<h3>add a song to your playlist</h3>
+	
+		<form action="#" th:action="@{/AddSongToPlaylist}"  method="post" >
+		
+			<p>  title: <input type="text" name="newSongTitle" placeholder="song's title" required/> </p>
+			<p>  album: <input type="text" name="newSongAlbum" placeholder="album's title" required/> </p>
+			<p> artist: <input type="text" name="newSongArtist" placeholder="album's artist" required/> </p>
+			<input type="hidden" name="targetPlaylist" th:value="${PlTitle}"/>
+		    <input type="submit" value="Submit" name="Create Song">
+				   
+		</form>	
+	</fieldset>
+	
+</div>
+
+</body>
+</html>
