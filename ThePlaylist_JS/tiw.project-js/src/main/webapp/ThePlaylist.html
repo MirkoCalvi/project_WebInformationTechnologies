@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+       	<link rel="icon" type="image/x-png" href="images/icon.png">
+		<link rel="stylesheet" href="CSS/mystyle.css">
+		
+		<script src="javascript/drag&drop.js" charset="UTIF-8" defer></script>
+		<script src="javascript/servercall.js" charset="UTF-8" defer></script>
+        <script src="javascript/sign-out.js"  charset="UTF-8" defer></script>
+        <script src="javascript/reset.js" charset="UTF-8" defer></script>
+        <script src="javascript/createSong.js" charset="UTIF-8" defer></script>
+        <script src="javascript/addSongToPlaylist.js" charset="UTF-8" defer></script>
+        <script src="javascript/createPlaylist.js" charset="UTF-8" defer ></script>
+        
+		
+        <script src="javascript/render.js" charset="UTF-8" defer></script>
+        <script src="javascript/filter.js" charset="UTF-8" defer></script>
+		
+
+
+
+		<title>THE PLAYLIST</title>
+	</head>
+    <body>
+		<div class="signout-button">
+			<button id="sign-out">SIGN OUT</button>
+		</div>
+		<div class="home-button">
+			<button id="home-button">HOME</button>
+		</div>
+        <main>
+			<!--HOME PAGE-->
+			<div id="home-page" class="on">
+				<h1 id="title" class="title"></h1>
+				<p id="error" class="error"></p>
+				<div id="home-container" class="row-container">
+
+					<!--User Playlist-->
+					<div>
+						<h2 class="subTitle">Playlists</h2>
+						<p id="playlist-error" class="error"></p>
+						<table id="playlist-table" class="vertical">
+							<!--playlis + date of creation-->
+						</table>
+					</div> 
+
+					<!--Form to create a Playlist-->
+					<div>
+						<h2 class="subTitle">Create Playlist</h2>
+						<p id="crp-error" class="error"></p>
+						<p id="crp-message" class="message"></p>
+						<form action="#" id="create-playlist-form">
+							<label for="playlistName">Playlist Name</label>
+							<input type="text" name="playlistName" id="playlistName" required>
+							<input type="submit" id="create-playlist" value="CREATE">
+							<p id="get-songs-error" class="error"></p>
+							<div class="vertical" id="song-checkbox">
+								<!--song checkbox-->
+							</div>
+						</form>
+					</div>
+				</div>
+
+				<!--Form to upload a Song-->
+				<div id="song-form" class="column-container">
+					<div>
+						<h2 class="subTitle">Add Song</h2>
+							<p id="song-message" class="message"></p>
+							<p id="song-error" class="error"></p>
+							<form action="#" enctype="multipart/form-data" id="song-form">
+								<label for="songTitle">Song Title</label>
+								<input type="text" name="songTitle" id="songTitle" required>
+								<br>
+								<label for="genre">Genre</label>
+								<input list="genre"  name="genre" required>
+								<datalist id="genre">
+									<option value="Others"></option>
+									<option value="Rap"></option>
+									<option value="Rock"></option>
+									<option value="Jazz"></option>
+									<option value="Pop"></option>
+								</datalist>
+								<br>
+								<label for="fileAudio">Upload Track</label>
+								<input type="file" name="fileAudio" id="fileAudio" accept="audio/mp3, audio/wav" required>
+								<br>
+								<label for="albumTitle">Album Title</label>
+								<input type="text" name="albumTitle" id="albumTitle" required>
+								<br>
+								<label for="singer">Singer</label>
+								<input type="text" name="singer" id="singer" required>
+								<br>
+								<label for="fileImage">Upload Cover</label>
+								<input type="file" name="fileImage" id="fileImage" accept="img/*" required>
+								<br>
+								<label for="year">Release Year</label>
+								<input type="number" name="year" id="year" required>
+								<br>
+								<input type="submit" value="UPLOAD" id="create-song">
+							</form>
+					</div>
+				</div>
+			</div>
+
+
+			<!--PLAYLIST PAGE-->
+			<div id="playlist-page" class="off">
+				<h1 id="title" class="title"></h1>
+				<p id="error" class="error"></p>
+				<p id="message" class="message"></p>
+				<div id="column-container" class="playlist-container">
+					<div>
+						<h2 style="text-align: center;">Songs</h2>
+						<div class="row-container alignCenter">
+							<div id="precButton">
+								<button type="button">PREV</button>
+							</div>
+							<table id="song-table" class="vertical">
+							<!--song + singer + album + genre + year-->
+							</table>
+							<div id="nextButton">
+								<button type="button">NEXT</button>
+							</div>
+						</div>
+						<div class="row-container" >
+							<div id="editSortingButton">
+								<button type="button">SORT PLAYLIST</button>
+							</div>
+						</div>
+					</div>
+					<!-- modifying section -->
+					<div>
+						<h2 id="modifying"></h2>
+						<form action="#" id="add-song-form">
+							<input type="submit" id="add-song" value="ADD">
+							<p id="song-error" class="error"></p>
+							<input type="hidden" id="playlistName" name="playlistName" required>
+							<div class="vertical" id="song-roundbox">
+								<!--song roundbox-->
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+
+
+			<!--PLAYER PAGE-->
+			<div id="player-page" class="off">
+				<div id="info" class="song-box"></div>
+			</div>
+
+
+			<!--SORTING PAGE-->
+			<div id="sorting-page" class="off">
+				<div class="row-container">
+					<h1 id="title" class="title"></h1>
+					<button id="update">SAVE CHANGES</button>
+				</div>
+				<p id="error" class="error"></p>
+				<ul id="sorting-ul">
+					
+				</ul>
+			</div>
+		</main>
+    </body>
+</html>

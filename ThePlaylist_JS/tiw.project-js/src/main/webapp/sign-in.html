@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+
+       	<link rel="icon" type="image/x-png" href="images/icon.png">
+		<link rel="stylesheet" type="text/css" media="all" href="CSS/sign-in.css">
+
+		<script src="javascript/sign-in.js" charset="utf-8" defer></script>
+		<script src="javascript/servercall.js" charset="utf-8" defer></script>
+
+		<title>THE PLAYLIST</title>
+	</head>
+	<body>
+		<div class="container">
+			<h3>Hello, Again</h3>
+			<small>
+				We are happy to have you back.
+			</small>
+			<form action="#" id="sign-in">
+				<div>
+					<label for="userName">Username</label>
+					<input type="text" id="userName" name="userName" required>
+				</div>
+				<div>
+					<label for="password">Password</label>
+					<input type="password" id="password" name="password" required>
+					<p class="error" id="error"></p>
+				</div>
+				<div>
+					<input type="submit" value="SignIn">
+				</div>
+			</form>
+			<div class="sign-up">
+				<a href="sign-up.html">Sign Up</a>
+			</div>
+		</div>
+	</body>
+</html>

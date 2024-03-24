@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+
+*{
+    margin: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+.error{
+    text-align: center;
+    color: red;
+}
+.message{
+    text-align: center;
+    color: green;
+}
+.signout-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+.home-button {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+.off {
+    display: none;
+}
+.on {
+    display: block;
+}
+
+.vertical{
+    min-width: max-content;
+    width: auto;
+    max-height: 400px;
+    overflow-y: auto
+}
+
+img{
+    height: 100px;
+    width: 100px;
+}
+
+.row-container{
+    display: flex;
+    flex-direction: row wrap;
+    justify-content: space-around;
+    align-items: strech;
+}
+
+.alignCenter{
+	align-items: center;
+}
+
+.song-box{
+	display: flex;
+    flex-direction: row wrap;
+	align-items: flex-start;
+	justify-content: center;
+}
+
+.song-info {
+	display: flex;
+    flex-direction: row wrap;
+    justify-content: center;
+    align-items: strech;
+}
+
+.column-container{
+    display: flex;
+    flex-direction: column wrap;
+    justify-content: space-between;
+    align-items: strech;
+}
+
+.title, .subTitle{
+    text-align: center;
+}
+
+.column-container li {
+    cursor: move;
+}
+  
+.column-container li.dragging {
+    opacity: 0.5;
+}
+  
+.column-container li.placeholder {
+    background-color: #f0f0f0;
+}
